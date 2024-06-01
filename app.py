@@ -1,9 +1,12 @@
 import sys
 from selenium import webdriver
+import crawler
+import transformer
 
 def main(url):
     driver = webdriver.Chrome()
-    driver.get(url) 
+    driver.get(url)
+    transformer.transToFile("output.txt", crawler.crawl(driver))
     input("Press ENTER to close the browser")
     driver.quit()
 
